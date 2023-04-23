@@ -19,10 +19,18 @@ jobs:
       # - name: Publishing Image
       #   run: docker push krystian8207/sales_app_build:$IMAGE_VERSION
       - name: Running App on Server
-        uses: fifsky/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.7
         with:
-          command: ls
           host: ${{ vars.HOST }}
-          user: ubuntu
-          key: ${{ secrets.PRIVATE_KEY}}
+          username: ubuntu
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: ls -all
+        # uses: fifsky/ssh-action@master
+        # with:
+        #   command: ls
+        #   host: ${{ vars.HOST }}
+        #   user: ubuntu
+        #   key: ${{ secrets.PRIVATE_KEY }}
 
