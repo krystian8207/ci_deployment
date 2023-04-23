@@ -21,10 +21,7 @@ jobs:
       - name: Running App on Server
         uses: fifsky/ssh-action@master
         with:
-          command: |
-            docker stop $(docker ps -aq)
-            docker rm $(docker ps -aq)
-            docker run -p 8888:8888 krystian8207/sales_app_build:$IMAGE_VERSION
+          command: ls
           host: ${{ vars.HOST }}
           user: ubuntu
           key: ${{ secrets.PRIVATE_KEY}}
