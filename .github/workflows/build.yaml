@@ -27,6 +27,6 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            docker stop $(docker ps -aq)
-            docker rm $(docker ps -aq)
-            docker run -p 8888:8888 krystian8207/sales_app_build:1.1
+            docker stop sales_app 2> /dev/null || true
+            docker rm sales_app 2> /dev/null || true
+            docker run -p 8888:8888 --name sales_app krystian8207/sales_app_build:1.1
