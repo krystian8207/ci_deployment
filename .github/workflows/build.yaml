@@ -16,8 +16,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Publishing Image
-        run: docker push krystian8207/sales_app_build:$IMAGE_VERSION
+      # - name: Publishing Image
+      #   run: docker push krystian8207/sales_app_build:$IMAGE_VERSION
       - name: Running App on Server
         uses: fifsky/ssh-action@master
         with:
