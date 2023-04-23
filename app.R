@@ -1,6 +1,5 @@
+library(magrittr)
 library(shiny)
-library(dplyr)
-library(ggplot2)
 
 source("utils.R")
 
@@ -41,10 +40,9 @@ server <- function(input, output, session) {
   output$sales_data <- renderTable({
     req(input$department)
 
-    res_data() %>%
-      filter(Dept == input$department) %>%
+    res_data()[res_data()$Dept == input$department, ] %>%
       subset_data(input$variables)
   })
 }
 
-shinyApp(ui, server)
+shinyApp(ui, server, options = list(port = 8888, host = "0.0.0.0"))

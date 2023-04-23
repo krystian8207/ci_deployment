@@ -36,8 +36,10 @@ ENV RENV_PATHS_LOCKFILE /project/renv.lock
 
 RUN R -e "renv::restore(prompt = FALSE, lockfile = '/tmp/renv.lock')"
 
-COPY ./* /app
+USER root
+COPY ./* /project
 
-CMD ["app/app.R"]
+USER devel
+CMD ["/project/app.R"]
 ENTRYPOINT ["Rscript"]
 
