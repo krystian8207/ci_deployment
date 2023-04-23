@@ -2,7 +2,7 @@ on:
   push:
     branches: ["dev"]
 env:
-  IMAGE_VERSION: ${{ env.IMAGE_TAG }}
+  IMAGE_VERSION: 1.1
 name: Publishing app
 jobs:
   Building and Publishing to Dev Env:
