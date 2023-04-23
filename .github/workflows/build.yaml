@@ -2,7 +2,7 @@ on:
   push:
     branches: ["dev"]
 env:
-  IMAGE_VERSION: 1.1
+  IMAGE_VERSION: ${{ vars.IMAGE_TAG }}
 name: Publishing app
 jobs:
   build-and-deploy-to-dev:
@@ -25,7 +25,7 @@ jobs:
             docker stop $(docker ps -aq)
             docker rm $(docker ps -aq)
             docker run -p 8888:8888 krystian8207/sales_app_build:$IMAGE_VERSION
-          host: ${{ secrets.HOST }}
+          host: ${{ vars.HOST }}
           user: ubuntu
           key: ${{ secrets.PRIVATE_KEY}}
 
