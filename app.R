@@ -6,7 +6,7 @@ source("utils.R")
 ui <- shinydashboardPlus::dashboardPage(
   options = list(sidebarExpandOnHover = TRUE),
   header = shinydashboardPlus::dashboardHeader(
-    title = "Sales App" |> shiny::h3(class = "dropdown", style = "display: inline;")
+    title = "SalesApp" |> shiny::h3(class = "dropdown", style = "display: inline;")
   ),
   sidebar = shinydashboardPlus::dashboardSidebar(
     minified = TRUE, collapsed = FALSE,
